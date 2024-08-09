@@ -12,7 +12,7 @@ load_dotenv()
 def login():
     try:
         
-        logging.info("Logging in...")
+        logging.info("Logging in to Spotify.")
         
         sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
             client_id=os.getenv("SPOTIFY_CLIENT_ID"),
@@ -21,7 +21,7 @@ def login():
             scope=os.getenv("SPOTIFY_SCOPE")
         ))
         
-        logging.info("Login successful!")
+        logging.info("Login to Spotify successful!")
         return sp
     
     except Exception as e:
@@ -125,7 +125,6 @@ if __name__ == "__main__":
         main()
     except Exception as e:
         logging.error("Error: %s", str(e))
-        sys.exit(1)
     finally:
         end_time = time.time()
         elapsed_time = end_time - start_time
